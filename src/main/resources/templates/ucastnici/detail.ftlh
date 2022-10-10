@@ -10,10 +10,16 @@
     [#include '/_common/header.ftlh']
 
     <div class="card" style="width: 18rem;">
-        <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Pooh_Shepard1928.jpg" class="card-img-top" alt="profilová fotka">
+        [#if ucastnikDetail.profilovyObrazek?exists]
+            <img src=${ucastnikDetail.profilovyObrazek} class="card-img-top" alt="profilová fotka">
+        [/#if]
         <div class="card-body">
-            <h5 class="card-title">Medvídek Pú</h5>
-            <p class="card-text">Bydliště: Stokorcový les</p>
+            <h5 class="card-title">${ucastnikDetail.jmeno} ${ucastnikDetail.prijmeni}</h5>
+            <p class="card-text">Bydliště:
+                [#if ucastnikDetail.bydliste?exists]
+                    ${ucastnikDetail.bydliste}
+                [/#if]
+            </p>
         </div>
     </div>
 </div>

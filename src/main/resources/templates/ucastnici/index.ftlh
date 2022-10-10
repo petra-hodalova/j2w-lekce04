@@ -21,22 +21,20 @@
         </tr>
         </thead>
         <tbody>
+        [#list ucastnici as ucastnik]
         <tr>
-            <td>1</td>
+            <td>${ucastnik?counter}</td>
             <td><i class="las la-mars" style="color: blue;"></i></td>
-            <td>Medvídek</td>
-            <td>Pú</td>
-            <td>Stokorcový les</td>
-            <td><a href="/ucastnici/detail/1" class="btn btn-primary">Detail</a></td>
+            <td>${ucastnik.jmeno}</td>
+            <td>${ucastnik.prijmeni}</td>
+            <td>
+                [#if ucastnik.bydliste?exists]
+                    ${ucastnik.bydliste}
+                [/#if]
+            </td>
+            <td><a href="/ucastnici/detail/${ucastnik?index}" class="btn btn-primary">Detail</a></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td><i class="las la-venus" style="color: red;"></i></td>
-            <td>Čarodějnice</td>
-            <td>Malá</td>
-            <td><em>neuvedeno</em></td>
-            <td><a href="/ucastnici/detail/2" class="btn btn-primary">Detail</a></td>
-        </tr>
+        [/#list]
         </tbody>
     </table>
 </div>
